@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { questions } from "./Test";
 
 const classifyIQ = (points) => {
   if (points >= 30) return "You have a High IQ!";
@@ -13,7 +14,7 @@ const Result = () => {
   const points = parseInt(query.get("points") || "0");
 
   // Use dynamic number of questions
-  const totalQuestions = 50;
+  const totalQuestions = questions.length;
   const percentage = (points / totalQuestions) * 100;
 
   const getMedalImage = (percentage) => {

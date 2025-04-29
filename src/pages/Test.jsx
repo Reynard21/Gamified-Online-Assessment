@@ -1,368 +1,394 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const questions = [
+export const questions = [
+  // 13 Numerical
   {
     id: 1,
-    question: "What comes next in the series: 1, 4, 9, 16, 25, ___?",
-    options: ["36", "30", "42", "49"],
-    correctAnswer: "36", // Answer is 36 because the pattern is squares of integers
+    question: "What is 10 + 5?",
+    options: ["12", "15", "18", "20"],
+    correctAnswer: "15",
     type: "Numerical",
   },
   {
     id: 2,
-    question: "Which word is the odd one out?",
-    options: ["Apple", "Banana", "Carrot", "Grapes"],
-    correctAnswer: "Carrot", // Carrot is the odd one out (it's a vegetable, others are fruits)
-    type: "Verbal",
+    question: "What is 20 - 7?",
+    options: ["10", "13", "15", "18"],
+    correctAnswer: "13",
+    type: "Numerical",
   },
   {
     id: 3,
-    question:
-      "What is the missing number in the series: 2, 6, 12, 20, 30, ___?",
-    options: ["40", "42", "44", "48"],
-    correctAnswer: "42", // Pattern: +4, +6, +8, +10...
+    question: "What is 3 multiplied by 4?",
+    options: ["7", "9", "12", "15"],
+    correctAnswer: "12",
     type: "Numerical",
   },
   {
     id: 4,
-    question:
-      "Which number should come next in the series: 5, 11, 17, 23, 29, ___?",
-    options: ["35", "36", "37", "38"],
-    correctAnswer: "35", // The difference between the numbers is 6.
+    question: "What is 16 divided by 2?",
+    options: ["4", "6", "8", "10"],
+    correctAnswer: "8",
     type: "Numerical",
   },
   {
     id: 5,
-    question: "Which number is a prime number?",
-    options: ["2", "4", "16", "81"],
-    correctAnswer: "2", // All other numbers are prime, 21 is not.
+    question: "What comes next: 2, 4, 6, ?",
+    options: ["7", "8", "9", "10"],
+    correctAnswer: "8",
     type: "Numerical",
   },
   {
     id: 6,
-    question: "Which number is the odd one out?",
-    options: ["13", "17", "19", "21"],
-    correctAnswer: "21", // All other numbers are prime, 21 is not.
+    question: "What is half of 10?",
+    options: ["2", "4", "5", "8"],
+    correctAnswer: "5",
     type: "Numerical",
   },
   {
     id: 7,
-    question: "Which of the following is the largest number?",
-    options: ["4.25", "4.2", "4.28", "4.4"],
-    correctAnswer: "4.4", // Largest is 4.4.
+    question: "If you have 3 apples and get 2 more, how many do you have?",
+    options: ["3", "4", "5", "6"],
+    correctAnswer: "5",
     type: "Numerical",
   },
   {
     id: 8,
-    question: "How many months have 28 days?",
-    options: ["1", "12", "6", "2"],
-    correctAnswer: "12", // All months have at least 28 days.
-    type: "Verbal",
+    question: "What is the value of 5 + 5?",
+    options: ["8", "10", "12", "14"],
+    correctAnswer: "10",
+    type: "Numerical",
   },
   {
     id: 9,
-    question:
-      "If you rearrange the letters 'CIFAIPC', you would have the name of a(n):",
-    options: ["Ocean", "Country", "City", "Animal"],
-    correctAnswer: "Ocean", // Rearranged, it spells 'PACIFIC'
-    type: "Verbal",
+    question: "What is 9 - 3?",
+    options: ["5", "6", "7", "8"],
+    correctAnswer: "6",
+    type: "Numerical",
   },
   {
     id: 10,
-    question: "Which word does not belong?",
-    options: ["Hammer", "Screwdriver", "Wrench", "Pencil"],
-    correctAnswer: "Pencil", // Pencil is not a tool for driving screws or bolts.
-    type: "Verbal",
+    question: "What is 2 times 8?",
+    options: ["10", "14", "16", "20"],
+    correctAnswer: "16",
+    type: "Numerical",
   },
   {
     id: 11,
-    question: "Which of the following numbers is divisible by 9?",
-    options: ["21", "33", "45", "55"],
-    correctAnswer: "45", // 45 is divisible by 9.
+    question: "What is 15 divided by 3?",
+    options: ["3", "4", "5", "6"],
+    correctAnswer: "5",
     type: "Numerical",
   },
   {
     id: 12,
-    question: "What is the next number in the sequence: 1, 1, 2, 3, 5, 8, ___?",
-    options: ["13", "12", "11", "10"],
-    correctAnswer: "13", // Fibonacci sequence.
+    question: "What comes next: 1, 3, 5, ?",
+    options: ["6", "7", "8", "9"],
+    correctAnswer: "7",
     type: "Numerical",
   },
   {
     id: 13,
-    question: "What is the opposite of 'ascend'?",
-    options: ["Descend", "Climb", "Fall", "Rise"],
-    correctAnswer: "Descend", // 'Ascend' means to go up, opposite is 'Descend'.
+    question: "What is double of 7?",
+    options: ["10", "12", "14", "16"],
+    correctAnswer: "14",
+    type: "Numerical",
+  },
+
+  // 13 Verbal
+  {
+    id: 14,
+    question: "Which is a fruit?",
+    options: ["Carrot", "Broccoli", "Apple", "Spinach"],
+    correctAnswer: "Apple",
     type: "Verbal",
   },
   {
-    id: 14,
-    question: "What is 7 multiplied by 6?",
-    options: ["42", "36", "48", "54"],
-    correctAnswer: "42", // Simple multiplication.
-    type: "Numerical",
-  },
-  {
     id: 15,
-    question: "Which of the following words is most similar to 'Trustworthy'?",
-    options: ["Reliable", "Dishonest", "Cunning", "Lazy"],
-    correctAnswer: "Reliable", // Trustworthy means reliable.
+    question: "Which is a color?",
+    options: ["Table", "Chair", "Blue", "Book"],
+    correctAnswer: "Blue",
     type: "Verbal",
   },
   {
     id: 16,
-    question:
-      "If 3 people can build 3 chairs in 3 days, how many chairs can 6 people build in 6 days?",
-    options: ["12", "18", "6", "9"],
-    correctAnswer: "12", // 6 people build 2 chairs per day, for 6 days = 12 chairs.
-    type: "Numerical",
+    question: "What do you use to write?",
+    options: ["Fork", "Spoon", "Pen", "Knife"],
+    correctAnswer: "Pen",
+    type: "Verbal",
   },
   {
     id: 17,
-    question: "What comes next in the sequence: 2, 3, 5, 8, 12, 17, ___?",
-    options: ["22", "23", "24", "25"],
-    correctAnswer: "23", // Sequence: Add 1, 2, 3, 4, 5... so next will be 17 + 6 = 23.
-    type: "Numerical",
+    question: "A dog says:",
+    options: ["Meow", "Woof", "Moo", "Quack"],
+    correctAnswer: "Woof",
+    type: "Verbal",
   },
   {
     id: 18,
-    question: "Which letter completes the series: D, G, J, M, ___?",
-    options: ["O", "P", "Q", "R"],
-    correctAnswer: "O", // Every letter is +3 in the alphabet.
+    question: "A cat says:",
+    options: ["Woof", "Meow", "Oink", "Hiss"],
+    correctAnswer: "Meow",
     type: "Verbal",
   },
   {
     id: 19,
-    question: "What is the next number in the series: 3, 6, 9, 12, 15, ___?",
-    options: ["16", "18", "20", "17"],
-    correctAnswer: "18", // The difference is 3 each time.
-    type: "Numerical",
+    question: "What is the opposite of 'big'?",
+    options: ["Tall", "Small", "Happy", "Fast"],
+    correctAnswer: "Small",
+    type: "Verbal",
   },
   {
     id: 20,
-    question:
-      "If all roses are flowers and some flowers fade quickly, can it be said that some roses fade quickly?",
-    options: ["Yes", "No", "Maybe", "Can't say"],
-    correctAnswer: "Maybe", // This is a logical deduction problem.
-    type: "Logic",
+    question: "What is the opposite of 'up'?",
+    options: ["Down", "Left", "Right", "Forward"],
+    correctAnswer: "Down",
+    type: "Verbal",
   },
   {
     id: 21,
-    question: "Which number comes next in the series: 3, 9, 27, 81, ___?",
-    options: ["243", "200", "150", "120"],
-    correctAnswer: "243", // The pattern is multiplication by 3.
-    type: "Numerical",
+    question: "Which day comes after Monday?",
+    options: ["Sunday", "Tuesday", "Friday", "Saturday"],
+    correctAnswer: "Tuesday",
+    type: "Verbal",
   },
   {
     id: 22,
-    question: "How many sides does a hexagon have?",
-    options: ["6", "8", "4", "10"],
-    correctAnswer: "6", // A hexagon has 6 sides.
+    question: "What do birds have that helps them fly?",
+    options: ["Scales", "Fur", "Feathers", "Shells"],
+    correctAnswer: "Feathers",
     type: "Verbal",
   },
   {
     id: 23,
-    question: "If the day before yesterday was Sunday, what day is it today?",
-    options: ["Tuesday", "Wednesday", "Monday", "Thursday"],
-    correctAnswer: "Tuesday", // Logical deduction based on days of the week.
-    type: "Logic",
+    question: "What do you wear on your feet?",
+    options: ["Hat", "Shirt", "Shoes", "Gloves"],
+    correctAnswer: "Shoes",
+    type: "Verbal",
   },
   {
     id: 24,
-    question: "What is the square root of 144?",
-    options: ["12", "14", "16", "18"],
-    correctAnswer: "12", // Square root of 144 is 12.
-    type: "Numerical",
+    question: "Which season comes after summer?",
+    options: ["Spring", "Autumn", "Winter", "Summer"],
+    correctAnswer: "Autumn",
+    type: "Verbal",
   },
   {
     id: 25,
-    question: "Which of these numbers is the smallest?",
-    options: ["0.5", "1.5", "0.05", "0.15"],
-    correctAnswer: "0.05", // The smallest number is 0.05.
-    type: "Numerical",
+    question: "What do you drink when you are thirsty?",
+    options: ["Food", "Air", "Water", "Sunlight"],
+    correctAnswer: "Water",
+    type: "Verbal",
   },
   {
     id: 26,
-    question: "What comes next in the sequence: 2, 4, 8, 16, ___?",
-    options: ["24", "32", "64", "48"],
-    correctAnswer: "32", // The pattern is doubling each time.
-    type: "Numerical",
+    question: "What do you use to cut paper?",
+    options: ["Hammer", "Nail", "Scissors", "Brush"],
+    correctAnswer: "Scissors",
+    type: "Verbal",
   },
+
+  // 12 Logical
   {
     id: 27,
-    question: "Which word is most similar to 'Ambiguous'?",
-    options: ["Clear", "Vague", "Direct", "Explicit"],
-    correctAnswer: "Vague", // Ambiguous means unclear or vague.
-    type: "Verbal",
+    question: "If it is day, the sun is shining. It is day. What can you say?",
+    options: [
+      "The moon is out.",
+      "It is raining.",
+      "The sun is shining.",
+      "It is night.",
+    ],
+    correctAnswer: "The sun is shining.",
+    type: "Logic",
   },
   {
     id: 28,
-    question: "How many degrees are in a right angle?",
-    options: ["90", "180", "45", "60"],
-    correctAnswer: "90", // A right angle is 90 degrees.
-    type: "Verbal",
+    question: "Apples are fruits. A banana is a fruit. Is a banana an apple?",
+    options: ["Yes", "No", "Maybe", "Sometimes"],
+    correctAnswer: "No",
+    type: "Logic",
   },
   {
     id: 29,
-    question: "Which of the following is the largest prime number?",
-    options: ["17", "23", "31", "19"],
-    correctAnswer: "31", // The largest prime number here is 31.
-    type: "Numerical",
+    question:
+      "If all cats like milk, and Fluffy is a cat, what does Fluffy like?",
+    options: ["Water", "Fish", "Milk", "Bones"],
+    correctAnswer: "Milk",
+    type: "Logic",
   },
   {
     id: 30,
-    question: "What is the next number in the sequence: 1, 1, 2, 6, 24, ___?",
-    options: ["120", "100", "110", "90"],
-    correctAnswer: "120", // This is a factorial sequence (1!, 2!, 3!, 4!, 5! = 120).
-    type: "Numerical",
+    question:
+      "Big animals eat a lot. A mouse is a small animal. Does a mouse eat a lot?",
+    options: ["Yes", "No", "Maybe", "Always"],
+    correctAnswer: "No",
+    type: "Logic",
   },
   {
     id: 31,
-    question: "Which of these is a synonym of 'Jovial'?",
-    options: ["Sad", "Happy", "Angry", "Gloomy"],
-    correctAnswer: "Happy", // Jovial means cheerful or happy.
-    type: "Verbal",
+    question:
+      "If you go to school on weekdays, and today is Saturday, did you go to school today?",
+    options: ["Yes", "No", "Maybe", "Perhaps"],
+    correctAnswer: "No",
+    type: "Logic",
   },
   {
     id: 32,
     question:
-      "Which number comes next in the sequence: 1, 1, 2, 6, 24, 120, ___?",
-    options: ["720", "100", "200", "300"],
-    correctAnswer: "720", // This is a factorial sequence.
-    type: "Numerical",
+      "If you sleep at night, and it is daytime, are you usually sleeping?",
+    options: ["Yes", "No", "Sometimes", "Always"],
+    correctAnswer: "No",
+    type: "Logic",
   },
   {
     id: 33,
-    question: "What is 3 times 4?",
-    options: ["12", "14", "10", "16"],
-    correctAnswer: "12", // Simple multiplication.
-    type: "Numerical",
+    question: "A circle is round. A ball is round. Is a ball a circle?",
+    options: ["Yes", "No", "Maybe", "Can't tell"],
+    correctAnswer: "No",
+    type: "Logic",
   },
   {
     id: 34,
-    question: "Which of the following is the odd one out?",
-    options: ["Triangle", "Rectangle", "Circle", "Square"],
-    correctAnswer: "Circle", // All others are polygons.
-    type: "Spatial",
+    question:
+      "If you wear a coat when it's cold, and it is hot, should you wear a coat?",
+    options: ["Yes", "No", "Maybe", "Only sometimes"],
+    correctAnswer: "No",
+    type: "Logic",
   },
   {
     id: 35,
-    question: "What is the capital of France?",
-    options: ["Berlin", "Madrid", "Paris", "Rome"],
-    correctAnswer: "Paris", // Capital of France is Paris.
-    type: "Verbal",
+    question: "You use a spoon to eat soup. Can you eat soup with a fork?",
+    options: ["Yes", "No", "Maybe", "It depends"],
+    correctAnswer: "Maybe",
+    type: "Logic",
   },
   {
     id: 36,
-    question: "What is the next letter in the sequence: A, C, E, G, ___?",
-    options: ["I", "H", "J", "K"],
-    correctAnswer: "I", // Every letter is +2 in the alphabet.
-    type: "Verbal",
+    question:
+      "If you see a red light, you stop. You see a green light. What should you do?",
+    options: ["Stop", "Go", "Wait", "Turn around"],
+    correctAnswer: "Go",
+    type: "Logic",
   },
   {
     id: 37,
-    question: "How many hours are in a day?",
-    options: ["12", "24", "36", "48"],
-    correctAnswer: "24", // There are 24 hours in a day.
-    type: "Verbal",
+    question: "Fish live in water. Can birds live in water?",
+    options: ["Yes", "No", "Some can", "All can"],
+    correctAnswer: "No",
+    type: "Logic",
   },
   {
     id: 38,
-    question: "Which of these numbers is divisible by 3?",
-    options: ["20", "33", "21", "25"],
-    correctAnswer: "21", // 21 is divisible by 3.
-    type: "Numerical",
+    question:
+      "If you feel happy when you get a gift, and you receive a gift, how do you feel?",
+    options: ["Sad", "Angry", "Happy", "Tired"],
+    correctAnswer: "Happy",
+    type: "Logic",
   },
+
+  // 12 Spatial
   {
     id: 39,
-    question: "Which of the following is the opposite of 'Generous'?",
-    options: ["Selfish", "Kind", "Charitable", "Caring"],
-    correctAnswer: "Selfish", // Opposite of generous is selfish.
-    type: "Verbal",
+    question: "Which shape has 3 sides?",
+    options: ["Square", "Circle", "Triangle", "Rectangle"],
+    correctAnswer: "Triangle",
+    type: "Spatial",
   },
   {
     id: 40,
-    question: "What is the value of 5 squared?",
-    options: ["20", "25", "30", "35"],
-    correctAnswer: "25", // 5 squared is 25.
-    type: "Numerical",
+    question: "Which shape is round?",
+    options: ["Square", "Triangle", "Circle", "Pentagon"],
+    correctAnswer: "Circle",
+    type: "Spatial",
   },
   {
     id: 41,
-    question: "What is 15% of 200?",
-    options: ["30", "35", "40", "25"],
-    correctAnswer: "30", // 15% of 200 is 30.
-    type: "Numerical",
+    question: "A box is usually what shape?",
+    options: ["Sphere", "Cube", "Cone", "Cylinder"],
+    correctAnswer: "Cube",
+    type: "Spatial",
   },
   {
     id: 42,
-    question: "Which of these shapes has 8 sides?",
-    options: ["Hexagon", "Octagon", "Pentagon", "Decagon"],
-    correctAnswer: "Octagon", // An octagon has 8 sides.
+    question: "Which way is up?",
+    options: [
+      "Pointing to the sky",
+      "Pointing to the ground",
+      "Pointing left",
+      "Pointing right",
+    ],
+    correctAnswer: "Pointing to the sky",
     type: "Spatial",
   },
   {
     id: 43,
-    question: "How many players are on a football team?",
-    options: ["9", "11", "12", "10"],
-    correctAnswer: "11", // A football team has 11 players.
-    type: "Verbal",
+    question: "Which way is down?",
+    options: [
+      "Pointing to the sky",
+      "Pointing to the ground",
+      "Pointing forward",
+      "Pointing backward",
+    ],
+    correctAnswer: "Pointing to the ground",
+    type: "Spatial",
   },
   {
     id: 44,
-    question: "Which word is the odd one out?",
-    options: ["Apple", "Banana", "Orange", "Pineapple"],
-    correctAnswer: "Pineapple", // Pineapple is not a citrus fruit.
-    type: "Verbal",
+    question:
+      "If you turn left, which way are you facing relative to where you were?",
+    options: ["Same way", "Opposite way", "To your left", "To your right"],
+    correctAnswer: "To your left",
+    type: "Spatial",
   },
   {
     id: 45,
-    question: "What is the next number in the sequence: 4, 7, 11, 16, ___?",
-    options: ["20", "22", "25", "24"],
-    correctAnswer: "22", // The difference between numbers is increasing by 1.
-    type: "Numerical",
+    question:
+      "If you turn right, which way are you facing relative to where you were?",
+    options: ["Same way", "Opposite way", "To your left", "To your right"],
+    correctAnswer: "To your right",
+    type: "Spatial",
   },
   {
     id: 46,
-    question: "Which number is divisible by 5?",
-    options: ["23", "45", "37", "55"],
-    correctAnswer: "55", // 55 is divisible by 5.
-    type: "Numerical",
+    question: "What shape has 4 equal sides and 4 corners?",
+    options: ["Rectangle", "Triangle", "Square", "Circle"],
+    correctAnswer: "Square",
+    type: "Spatial",
   },
   {
     id: 47,
-    question: "If you divide 100 by 4, what is the result?",
-    options: ["20", "25", "30", "15"],
-    correctAnswer: "25", // 100 divided by 4 is 25.
-    type: "Numerical",
+    question: "What shape has 4 sides, where opposite sides are equal?",
+    options: ["Square", "Triangle", "Rectangle", "Pentagon"],
+    correctAnswer: "Rectangle",
+    type: "Spatial",
   },
   {
     id: 48,
-    question: "What is the square of 9?",
-    options: ["81", "72", "90", "60"],
-    correctAnswer: "81", // Square of 9 is 81.
-    type: "Numerical",
+    question: "Imagine a ball. What shape is it?",
+    options: ["Cube", "Pyramid", "Sphere", "Cylinder"],
+    correctAnswer: "Sphere",
+    type: "Spatial",
   },
   {
     id: 49,
-    question: "Which number comes next in the sequence: 1, 4, 9, 16, ___?",
-    options: ["20", "25", "24", "30"],
-    correctAnswer: "25", // Sequence is the square of numbers (1^2, 2^2, 3^2, 4^2...).
-    type: "Numerical",
+    question: "A roof of a house is often what shape?",
+    options: ["Square", "Triangle", "Circle", "Rectangle"],
+    correctAnswer: "Triangle",
+    type: "Spatial",
   },
   {
     id: 50,
-    question: "Which country is the largest by area?",
-    options: ["China", "Canada", "USA", "Russia"],
-    correctAnswer: "Russia", // Russia is the largest country by area.
-    type: "Verbal",
+    question: "How many corners does a triangle have?",
+    options: ["2", "3", "4", "0"],
+    correctAnswer: "3",
+    type: "Spatial",
   },
 ];
 
 const Test = () => {
   const [answers, setAnswers] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const q = questions[currentQuestionIndex];
 
@@ -376,8 +402,7 @@ const Test = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      const points = Math.floor(Math.random() * 101);
-      navigate(`/result?points=${points}`);
+      handleSubmit();
     }
   };
 
@@ -388,47 +413,96 @@ const Test = () => {
   };
 
   const handleSubmit = () => {
+    if (answers.length !== questions.length || answers.includes(undefined)) {
+      setShowModal(true);
+      return;
+    }
     const score = answers.reduce((acc, answer, index) => {
       return answer === questions[index].correctAnswer ? acc + 1 : acc;
     }, 0);
     navigate(`/result?points=${score}`);
   };
 
+  const progressPercentage =
+    ((currentQuestionIndex + 1) / questions.length) * 100;
   return (
     <div className="test-container">
-      <h2 className="question-type">{q.type} Question </h2>
-      <p className="question-text">{q.question}</p>
-      <div className="options-container">
-        {q.options.map((opt) => (
-          <button
-            key={opt}
-            className={`button option-button ${
-              answers[currentQuestionIndex] === opt ? "selected" : ""
-            }`}
-            onClick={() => handleAnswer(opt)}
+      <div style={{ padding: "20px" }}>
+        {/* Progress Bar */}
+        <div style={{ marginBottom: "20px" }}>
+          <div
+            style={{ marginBottom: "8px", fontWeight: "bold", color: "black" }}
           >
-            {opt}
+            Question {currentQuestionIndex + 1} of {questions.length}
+          </div>
+          <div
+            style={{
+              height: "10px",
+              background: "#eee",
+              borderRadius: "5px",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                height: "100%",
+                width: `${progressPercentage}%`,
+                background: "linear-gradient(to right, #4facfe, #00f2fe)",
+                transition: "width 0.4s ease-in-out",
+              }}
+            />
+          </div>
+        </div>
+
+        <h2 className="question-type">{q.type} Question </h2>
+        <p className="question-text">{q.question}</p>
+        <div className="options-container">
+          {q.options.map((opt) => (
+            <button
+              key={opt}
+              className={`button option-button ${
+                answers[currentQuestionIndex] === opt ? "selected" : ""
+              }`}
+              onClick={() => handleAnswer(opt)}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+        <div className="navigation-buttons">
+          <button
+            className="button prev-button"
+            onClick={handlePrev}
+            disabled={currentQuestionIndex === 0}
+          >
+            Previous
           </button>
-        ))}
+          {currentQuestionIndex < questions.length - 1 ? (
+            <button className="button next-button" onClick={handleNext}>
+              Next
+            </button>
+          ) : (
+            <button className="button submit-button" onClick={handleSubmit}>
+              Submit
+            </button>
+          )}
+        </div>
       </div>
-      <div className="navigation-buttons">
-        <button
-          className="button prev-button"
-          onClick={handlePrev}
-          disabled={currentQuestionIndex === 0}
-        >
-          Previous
-        </button>
-        {currentQuestionIndex < questions.length - 1 ? (
-          <button className="button next-button" onClick={handleNext}>
-            Next
-          </button>
-        ) : (
-          <button className="button submit-button" onClick={handleSubmit}>
-            Submit
-          </button>
-        )}
-      </div>
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2 style={{ color: "black" }}>
+              You haven't answered all questions!
+            </h2>
+            <button
+              className="modal-button"
+              onClick={() => setShowModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
