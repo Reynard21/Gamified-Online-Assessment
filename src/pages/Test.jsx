@@ -2,387 +2,384 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const questions = [
-  // 13 Numerical
+  // 13 Numerical - Medium Difficulty
   {
     id: 1,
-    question: "What is 10 + 5?",
-    options: ["12", "15", "18", "20"],
-    correctAnswer: "15",
+    question: "What is the next number in the sequence: 2, 6, 12, 20, ___?",
+    options: ["24", "28", "30", "32"],
+    correctAnswer: "30",
     type: "Numerical",
   },
   {
     id: 2,
-    question: "What is 20 - 7?",
-    options: ["10", "13", "15", "18"],
-    correctAnswer: "13",
+    question: "What is 15% of 120?",
+    options: ["12", "15", "18", "20"],
+    correctAnswer: "18",
     type: "Numerical",
   },
   {
     id: 3,
-    question: "What is 3 multiplied by 4?",
-    options: ["7", "9", "12", "15"],
-    correctAnswer: "12",
-    type: "Numerical",
-  },
-  {
-    id: 4,
-    question: "What is 16 divided by 2?",
-    options: ["4", "6", "8", "10"],
-    correctAnswer: "8",
-    type: "Numerical",
-  },
-  {
-    id: 5,
-    question: "What comes next: 2, 4, 6, ?",
-    options: ["7", "8", "9", "10"],
-    correctAnswer: "8",
-    type: "Numerical",
-  },
-  {
-    id: 6,
-    question: "What is half of 10?",
-    options: ["2", "4", "5", "8"],
-    correctAnswer: "5",
-    type: "Numerical",
-  },
-  {
-    id: 7,
-    question: "If you have 3 apples and get 2 more, how many do you have?",
-    options: ["3", "4", "5", "6"],
-    correctAnswer: "5",
-    type: "Numerical",
-  },
-  {
-    id: 8,
-    question: "What is the value of 5 + 5?",
-    options: ["8", "10", "12", "14"],
-    correctAnswer: "10",
-    type: "Numerical",
-  },
-  {
-    id: 9,
-    question: "What is 9 - 3?",
-    options: ["5", "6", "7", "8"],
-    correctAnswer: "6",
-    type: "Numerical",
-  },
-  {
-    id: 10,
-    question: "What is 2 times 8?",
-    options: ["10", "14", "16", "20"],
-    correctAnswer: "16",
-    type: "Numerical",
-  },
-  {
-    id: 11,
-    question: "What is 15 divided by 3?",
-    options: ["3", "4", "5", "6"],
-    correctAnswer: "5",
-    type: "Numerical",
-  },
-  {
-    id: 12,
-    question: "What comes next: 1, 3, 5, ?",
-    options: ["6", "7", "8", "9"],
+    question: "If $4x = 3x + 7$, what is $x$?",
+    options: ["3", "5", "7", "9"],
     correctAnswer: "7",
     type: "Numerical",
   },
-  {
-    id: 13,
-    question: "What is double of 7?",
-    options: ["10", "12", "14", "16"],
-    correctAnswer: "14",
-    type: "Numerical",
-  },
+  // {
+  //   id: 4,
+  //   question:
+  //     "A train travels 60 km in 1.5 hours. What is its average speed in km/h?",
+  //   options: ["30", "40", "45", "90"],
+  //   correctAnswer: "40",
+  //   type: "Numerical",
+  // },
+  // {
+  //   id: 5,
+  //   question: "What is the square root of 144?",
+  //   options: ["10", "12", "14", "16"],
+  //   correctAnswer: "12",
+  //   type: "Numerical",
+  // },
+  // {
+  //   id: 6,
+  //   question: "What is the next prime number after 29?",
+  //   options: ["30", "31", "33", "37"],
+  //   correctAnswer: "31",
+  //   type: "Numerical",
+  // },
+  // {
+  //   id: 7,
+  //   question:
+  //     "If a shirt costs $40 after a 20% discount, what was the original price?",
+  //   options: ["$48", "$50", "$52", "$55"],
+  //   correctAnswer: "$50",
+  //   type: "Numerical",
+  // },
+  // {
+  //   id: 8,
+  //   question: "Which number is different from the group: 24, 36, 48, 60, 62?",
+  //   options: ["24", "36", "48", "60", "62"],
+  //   correctAnswer: "62",
+  //   type: "Numerical",
+  // },
+  // {
+  //   id: 9,
+  //   question: "Solve: $(5 \times 4) + (3^2) - 1 = ?$ ",
+  //   options: ["28", "29", "30", "31"],
+  //   correctAnswer: "28",
+  //   type: "Numerical",
+  // },
+  // {
+  //   id: 10,
+  //   question: "How many sides does a dodecagon have?",
+  //   options: ["10", "11", "12", "15"],
+  //   correctAnswer: "12",
+  //   type: "Numerical",
+  // },
+  // {
+  //   id: 11,
+  //   question:
+  //     "A pizza is divided into 8 equal slices. If you eat 3, what fraction is left?",
+  //   options: ["1/8", "3/8", "5/8", "7/8"],
+  //   correctAnswer: "5/8",
+  //   type: "Numerical",
+  // },
+  // {
+  //   id: 12,
+  //   question: "4, 9, 16, 25, ___ – what comes next?",
+  //   options: ["30", "36", "49", "64"],
+  //   correctAnswer: "36",
+  //   type: "Numerical",
+  // },
+  // {
+  //   id: 13,
+  //   question: "If today is Wednesday, what day will it be 17 days from now?",
+  //   options: ["Friday", "Saturday", "Sunday", "Monday"],
+  //   correctAnswer: "Sunday",
+  //   type: "Numerical",
+  // },
 
-  // 13 Verbal
-  {
-    id: 14,
-    question: "Which is a fruit?",
-    options: ["Carrot", "Broccoli", "Apple", "Spinach"],
-    correctAnswer: "Apple",
-    type: "Verbal",
-  },
-  {
-    id: 15,
-    question: "Which is a color?",
-    options: ["Table", "Chair", "Blue", "Book"],
-    correctAnswer: "Blue",
-    type: "Verbal",
-  },
-  {
-    id: 16,
-    question: "What do you use to write?",
-    options: ["Fork", "Spoon", "Pen", "Knife"],
-    correctAnswer: "Pen",
-    type: "Verbal",
-  },
-  {
-    id: 17,
-    question: "A dog says:",
-    options: ["Meow", "Woof", "Moo", "Quack"],
-    correctAnswer: "Woof",
-    type: "Verbal",
-  },
-  {
-    id: 18,
-    question: "A cat says:",
-    options: ["Woof", "Meow", "Oink", "Hiss"],
-    correctAnswer: "Meow",
-    type: "Verbal",
-  },
-  {
-    id: 19,
-    question: "What is the opposite of 'big'?",
-    options: ["Tall", "Small", "Happy", "Fast"],
-    correctAnswer: "Small",
-    type: "Verbal",
-  },
-  {
-    id: 20,
-    question: "What is the opposite of 'up'?",
-    options: ["Down", "Left", "Right", "Forward"],
-    correctAnswer: "Down",
-    type: "Verbal",
-  },
-  {
-    id: 21,
-    question: "Which day comes after Monday?",
-    options: ["Sunday", "Tuesday", "Friday", "Saturday"],
-    correctAnswer: "Tuesday",
-    type: "Verbal",
-  },
-  {
-    id: 22,
-    question: "What do birds have that helps them fly?",
-    options: ["Scales", "Fur", "Feathers", "Shells"],
-    correctAnswer: "Feathers",
-    type: "Verbal",
-  },
-  {
-    id: 23,
-    question: "What do you wear on your feet?",
-    options: ["Hat", "Shirt", "Shoes", "Gloves"],
-    correctAnswer: "Shoes",
-    type: "Verbal",
-  },
-  {
-    id: 24,
-    question: "Which season comes after summer?",
-    options: ["Spring", "Autumn", "Winter", "Summer"],
-    correctAnswer: "Autumn",
-    type: "Verbal",
-  },
-  {
-    id: 25,
-    question: "What do you drink when you are thirsty?",
-    options: ["Food", "Air", "Water", "Sunlight"],
-    correctAnswer: "Water",
-    type: "Verbal",
-  },
-  {
-    id: 26,
-    question: "What do you use to cut paper?",
-    options: ["Hammer", "Nail", "Scissors", "Brush"],
-    correctAnswer: "Scissors",
-    type: "Verbal",
-  },
+  // // 13 Verbal - Synonyms, Antonyms, Analogies
+  // {
+  //   id: 14,
+  //   question: "What is the synonym of fragile?",
+  //   options: ["strong", "delicate", "heavy", "loud"],
+  //   correctAnswer: "delicate",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 15,
+  //   question: "Which word is the opposite of scarce?",
+  //   options: ["abundant", "rare", "empty", "dull"],
+  //   correctAnswer: "abundant",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 16,
+  //   question: "Choose the analogy: Eye is to See as Ear is to ___",
+  //   options: ["Listen", "Hear", "Touch", "Smell"],
+  //   correctAnswer: "Hear",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 17,
+  //   question: "Which word doesn’t belong: happy, joyful, sad, cheerful",
+  //   options: ["happy", "joyful", "sad", "cheerful"],
+  //   correctAnswer: "sad",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 18,
+  //   question: "What does inevitable most nearly mean?",
+  //   options: ["optional", "avoidable", "certain", "sudden"],
+  //   correctAnswer: "certain",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 19,
+  //   question: "Which word is most similar to elaborate?",
+  //   options: ["simple", "detailed", "easy", "plain"],
+  //   correctAnswer: "detailed",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 20,
+  //   question: "Choose the analogy: Book is to Reading as Fork is to ___",
+  //   options: ["Writing", "Drawing", "Stirring", "Eating"],
+  //   correctAnswer: "Eating",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 21,
+  //   question:
+  //     "Complete the sentence: She was so tired that she could ___ stand.",
+  //   options: ["easily", "hardly", "quickly", "always"],
+  //   correctAnswer: "hardly",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 22,
+  //   question: "What is the past tense of “arise”?",
+  //   options: ["arose", "arisen", "arising", "arises"],
+  //   correctAnswer: "arose",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 23,
+  //   question: "Which word is the odd one out: lion, tiger, bear, carrot",
+  //   options: ["lion", "tiger", "bear", "carrot"],
+  //   correctAnswer: "carrot",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 24,
+  //   question: "Choose the word closest in meaning to brief.",
+  //   options: ["short", "clear", "boring", "slow"],
+  //   correctAnswer: "short",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 25,
+  //   question: "What does generous mean?",
+  //   options: ["stingy", "selfish", "willing to give", "careful with money"],
+  //   correctAnswer: "willing to give",
+  //   type: "Verbal",
+  // },
+  // {
+  //   id: 26,
+  //   question: "Which is a proper noun: city, book, Jakarta, river",
+  //   options: ["city", "book", "Jakarta", "river"],
+  //   correctAnswer: "Jakarta",
+  //   type: "Verbal",
+  // },
 
-  // 12 Logical
-  {
-    id: 27,
-    question: "If it is day, the sun is shining. It is day. What can you say?",
-    options: [
-      "The moon is out.",
-      "It is raining.",
-      "The sun is shining.",
-      "It is night.",
-    ],
-    correctAnswer: "The sun is shining.",
-    type: "Logic",
-  },
-  {
-    id: 28,
-    question: "Apples are fruits. A banana is a fruit. Is a banana an apple?",
-    options: ["Yes", "No", "Maybe", "Sometimes"],
-    correctAnswer: "No",
-    type: "Logic",
-  },
-  {
-    id: 29,
-    question:
-      "If all cats like milk, and Fluffy is a cat, what does Fluffy like?",
-    options: ["Water", "Fish", "Milk", "Bones"],
-    correctAnswer: "Milk",
-    type: "Logic",
-  },
-  {
-    id: 30,
-    question:
-      "Big animals eat a lot. A mouse is a small animal. Does a mouse eat a lot?",
-    options: ["Yes", "No", "Maybe", "Always"],
-    correctAnswer: "No",
-    type: "Logic",
-  },
-  {
-    id: 31,
-    question:
-      "If you go to school on weekdays, and today is Saturday, did you go to school today?",
-    options: ["Yes", "No", "Maybe", "Perhaps"],
-    correctAnswer: "No",
-    type: "Logic",
-  },
-  {
-    id: 32,
-    question:
-      "If you sleep at night, and it is daytime, are you usually sleeping?",
-    options: ["Yes", "No", "Sometimes", "Always"],
-    correctAnswer: "No",
-    type: "Logic",
-  },
-  {
-    id: 33,
-    question: "A circle is round. A ball is round. Is a ball a circle?",
-    options: ["Yes", "No", "Maybe", "Can't tell"],
-    correctAnswer: "No",
-    type: "Logic",
-  },
-  {
-    id: 34,
-    question:
-      "If you wear a coat when it's cold, and it is hot, should you wear a coat?",
-    options: ["Yes", "No", "Maybe", "Only sometimes"],
-    correctAnswer: "No",
-    type: "Logic",
-  },
-  {
-    id: 35,
-    question: "You use a spoon to eat soup. Can you eat soup with a fork?",
-    options: ["Yes", "No", "Maybe", "It depends"],
-    correctAnswer: "Maybe",
-    type: "Logic",
-  },
-  {
-    id: 36,
-    question:
-      "If you see a red light, you stop. You see a green light. What should you do?",
-    options: ["Stop", "Go", "Wait", "Turn around"],
-    correctAnswer: "Go",
-    type: "Logic",
-  },
-  {
-    id: 37,
-    question: "Fish live in water. Can birds live in water?",
-    options: ["Yes", "No", "Some can", "All can"],
-    correctAnswer: "No",
-    type: "Logic",
-  },
-  {
-    id: 38,
-    question:
-      "If you feel happy when you get a gift, and you receive a gift, how do you feel?",
-    options: ["Sad", "Angry", "Happy", "Tired"],
-    correctAnswer: "Happy",
-    type: "Logic",
-  },
+  // // 12 Logical - Patterns, Reasoning
+  // {
+  //   id: 27,
+  //   question:
+  //     "If all roses are flowers, and some flowers fade quickly, can some roses fade quickly?",
+  //   options: ["Yes", "No", "Maybe", "Cannot be determined"],
+  //   correctAnswer: "Yes",
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 28,
+  //   question:
+  //     "All squares are rectangles. All rectangles have 4 sides. Therefore, all squares have ___?",
+  //   options: ["3 sides", "4 sides", "round corners", "equal angles"],
+  //   correctAnswer: "4 sides",
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 29,
+  //   question: "Which number comes next: 1, 3, 6, 10, 15, ___",
+  //   options: ["18", "20", "21", "24"],
+  //   correctAnswer: "21",
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 30,
+  //   question:
+  //     "If today is Monday and it rained yesterday, what day did it rain?",
+  //   options: ["Saturday", "Sunday", "Monday", "Tuesday"],
+  //   correctAnswer: "Sunday",
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 31,
+  //   question:
+  //     "Which figure completes the pattern? (Imagine an abstract shape pattern here for a web implementation)",
+  //   options: ["Option A", "Option B", "Option C", "Option D"],
+  //   correctAnswer: "Option C", // Replace with the correct option based on the pattern
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 32,
+  //   question:
+  //     "If “Some cats are black” and “All black animals are fast”, is the conclusion “Some cats are fast” true or false?",
+  //   options: ["True", "False", "Cannot be determined"],
+  //   correctAnswer: "True",
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 33,
+  //   question: "A is taller than B. C is shorter than B. Who is tallest?",
+  //   options: ["A", "B", "C", "Cannot be determined"],
+  //   correctAnswer: "A",
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 34,
+  //   question: "Which one is the odd one out: 8, 16, 24, 32, 34",
+  //   options: ["8", "16", "24", "32", "34"],
+  //   correctAnswer: "34",
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 35,
+  //   question: "What comes next: AB, CD, EF, GH, ___",
+  //   options: ["IJ", "IK", "JI", "KI"],
+  //   correctAnswer: "IJ",
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 36,
+  //   question:
+  //     "If John is 5 years older than Maria, and Maria is 2 years older than Sam, who is the youngest?",
+  //   options: ["John", "Maria", "Sam", "Cannot be determined"],
+  //   correctAnswer: "Sam",
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 37,
+  //   question: "There are 5 apples and you take away 2. How many do you have?",
+  //   options: ["2", "3", "5", "7"],
+  //   correctAnswer: "2",
+  //   type: "Logic",
+  // },
+  // {
+  //   id: 38,
+  //   question: "Which weighs more: a pound of feathers or a pound of bricks?",
+  //   options: ["Feathers", "Bricks", "They weigh the same"],
+  //   correctAnswer: "They weigh the same",
+  //   type: "Logic",
+  // },
 
-  // 12 Spatial
-  {
-    id: 39,
-    question: "Which shape has 3 sides?",
-    options: ["Square", "Circle", "Triangle", "Rectangle"],
-    correctAnswer: "Triangle",
-    type: "Spatial",
-  },
-  {
-    id: 40,
-    question: "Which shape is round?",
-    options: ["Square", "Triangle", "Circle", "Pentagon"],
-    correctAnswer: "Circle",
-    type: "Spatial",
-  },
-  {
-    id: 41,
-    question: "A box is usually what shape?",
-    options: ["Sphere", "Cube", "Cone", "Cylinder"],
-    correctAnswer: "Cube",
-    type: "Spatial",
-  },
-  {
-    id: 42,
-    question: "Which way is up?",
-    options: [
-      "Pointing to the sky",
-      "Pointing to the ground",
-      "Pointing left",
-      "Pointing right",
-    ],
-    correctAnswer: "Pointing to the sky",
-    type: "Spatial",
-  },
-  {
-    id: 43,
-    question: "Which way is down?",
-    options: [
-      "Pointing to the sky",
-      "Pointing to the ground",
-      "Pointing forward",
-      "Pointing backward",
-    ],
-    correctAnswer: "Pointing to the ground",
-    type: "Spatial",
-  },
-  {
-    id: 44,
-    question:
-      "If you turn left, which way are you facing relative to where you were?",
-    options: ["Same way", "Opposite way", "To your left", "To your right"],
-    correctAnswer: "To your left",
-    type: "Spatial",
-  },
-  {
-    id: 45,
-    question:
-      "If you turn right, which way are you facing relative to where you were?",
-    options: ["Same way", "Opposite way", "To your left", "To your right"],
-    correctAnswer: "To your right",
-    type: "Spatial",
-  },
-  {
-    id: 46,
-    question: "What shape has 4 equal sides and 4 corners?",
-    options: ["Rectangle", "Triangle", "Square", "Circle"],
-    correctAnswer: "Square",
-    type: "Spatial",
-  },
-  {
-    id: 47,
-    question: "What shape has 4 sides, where opposite sides are equal?",
-    options: ["Square", "Triangle", "Rectangle", "Pentagon"],
-    correctAnswer: "Rectangle",
-    type: "Spatial",
-  },
-  {
-    id: 48,
-    question: "Imagine a ball. What shape is it?",
-    options: ["Cube", "Pyramid", "Sphere", "Cylinder"],
-    correctAnswer: "Sphere",
-    type: "Spatial",
-  },
-  {
-    id: 49,
-    question: "A roof of a house is often what shape?",
-    options: ["Square", "Triangle", "Circle", "Rectangle"],
-    correctAnswer: "Triangle",
-    type: "Spatial",
-  },
-  {
-    id: 50,
-    question: "How many corners does a triangle have?",
-    options: ["2", "3", "4", "0"],
-    correctAnswer: "3",
-    type: "Spatial",
-  },
+  // // 12 Spatial - Visual, Rotation, Shapes
+  // {
+  //   id: 39,
+  //   question:
+  //     "Which shape is a mirror image of this one? (Imagine shape options for a web implementation)",
+  //   options: ["Option A", "Option B", "Option C", "Option D"],
+  //   correctAnswer: "Option B", // Replace with the correct option based on the visual
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 40,
+  //   question:
+  //     "Rotate a triangle 90° clockwise. What does it look like? (Imagine visual options)",
+  //   options: ["Option A", "Option B", "Option C", "Option D"],
+  //   correctAnswer: "Option A", // Replace with the correct rotated triangle visual
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 41,
+  //   question:
+  //     "Identify the shape that completes the sequence of rotating arrows. (Imagine visual sequence)",
+  //   options: ["Option A", "Option B", "Option C", "Option D"],
+  //   correctAnswer: "Option D", // Replace with the correct arrow direction
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 42,
+  //   question:
+  //     "Which unfolded cube matches the 3D cube shown? (Imagine cube and unfolded net visuals)",
+  //   options: ["Option A", "Option B", "Option C", "Option D"],
+  //   correctAnswer: "Option C", // Replace with the correct net
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 43,
+  //   question:
+  //     "Which figure is different from the others based on symmetry? (Imagine symmetrical/asymmetrical shapes)",
+  //   options: ["Shape A", "Shape B", "Shape C", "Shape D"],
+  //   correctAnswer: "Shape B", // Replace with the asymmetrical shape
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 44,
+  //   question:
+  //     "Identify the object that would look the same if flipped horizontally. (Imagine objects)",
+  //   options: ["Object A", "Object B", "Object C", "Object D"],
+  //   correctAnswer: "Object A", // Replace with the horizontally symmetrical object
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 45,
+  //   question:
+  //     "Find the missing piece in a jigsaw pattern (grid-based logic). (Imagine jigsaw pattern)",
+  //   options: ["Piece 1", "Piece 2", "Piece 3", "Piece 4"],
+  //   correctAnswer: "Piece 3", // Replace with the correct jigsaw piece
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 46,
+  //   question:
+  //     "If a square is divided into 4 equal parts, how many rectangles are formed?",
+  //   options: ["1", "4", "5", "9"],
+  //   correctAnswer: "5",
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 47,
+  //   question:
+  //     "Which 3D object is formed from this net? (cube, pyramid, etc.) (Imagine a net)",
+  //   options: ["Cube", "Pyramid", "Sphere", "Cylinder"],
+  //   correctAnswer: "Cube", // Replace with the correct 3D object
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 48,
+  //   question:
+  //     "Count the number of triangles in this complex shape. (Imagine a shape with multiple triangles)",
+  //   options: ["4", "6", "8", "10"],
+  //   correctAnswer: "8", // Replace with the correct count
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 49,
+  //   question: "Which figure has the most sides? (Imagine different polygons)",
+  //   options: ["Triangle", "Square", "Pentagon", "Octagon"],
+  //   correctAnswer: "Octagon",
+  //   type: "Spatial",
+  // },
+  // {
+  //   id: 50,
+  //   question:
+  //     "Identify the rotated version of the original shape. (Imagine a shape and its rotations)",
+  //   options: ["Option A", "Option B", "Option C", "Option D"],
+  //   correctAnswer: "Option C", // Replace with the correct rotated shape
+  //   type: "Spatial",
+  // },
 ];
 
 const Test = () => {
@@ -412,17 +409,62 @@ const Test = () => {
     }
   };
 
-  const handleSubmit = () => {
-    if (answers.length !== questions.length || answers.includes(undefined)) {
-      setShowModal(true);
-      return;
-    }
-    const score = answers.reduce((acc, answer, index) => {
-      return answer === questions[index].correctAnswer ? acc + 1 : acc;
-    }, 0);
-    navigate(`/result?points=${score}`);
-  };
+  // const handleSubmit = () => {
+  //   if (answers.length !== questions.length || answers.includes(undefined)) {
+  //     setShowModal(true);
+  //     return;
+  //   }
+  //   const score = answers.reduce((acc, answer, index) => {
+  //     return answer === questions[index].correctAnswer ? acc + 1 : acc;
+  //   }, 0);
+  //   navigate(`/result?points=${score}`);
+  // };
+const handleSubmit = async () => {
+  // 1. Validate all questions are answered
+  if (answers.length !== questions.length || answers.includes(undefined)) {
+    setShowModal(true);
+    return;
+  }
 
+  // 2. Add loading state (optional)
+  // setLoading(true); // Uncomment if you want a loading spinner
+
+  try {
+    // 3. Send answers to backend
+    const response = await fetch("http://localhost:5000/api/submit-test", {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json" 
+      },
+      body: JSON.stringify({ answers })
+    });
+
+    // 4. Check for errors
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+
+    // 5. Process the response
+    const result = await response.json();
+    
+    // 6. Navigate to results page with data
+    navigate("/result", { 
+      state: { 
+        points: result.score,
+        medal: result.medal,
+        iqClass: result.iqClass,
+        weakAreas: result.weakAreas
+      }
+    });
+
+  } catch (error) {
+    // 7. Handle errors
+    console.error("Submission failed:", error);
+    alert("Failed to submit test. Please try again.");
+  } finally {
+    // setLoading(false); // Uncomment if using loading state
+  }
+};
   const progressPercentage =
     ((currentQuestionIndex + 1) / questions.length) * 100;
   return (
