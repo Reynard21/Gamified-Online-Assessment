@@ -35,8 +35,7 @@ html {
 }
 
 .home-container,
-.test-container,
-.result-container {
+.test-container {
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
   padding: 2rem;
@@ -46,14 +45,40 @@ html {
   text-align: center;
 }
 
-.home-title,
-.result-title {
+.home-title {
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
   color: #333;
 }
 
-.result-text,
+.result-container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  color: #f0e6ff;
+  text-align: center;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.result-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #6b5b95, #a58eda);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.result-text {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color: #ddd;
+}
+
 .question-text {
   font-size: 1.1rem;
   margin: 1rem 0;
@@ -195,30 +220,151 @@ html {
     transform: scale(1);
   }
 }
+.weak-areas {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+.weak-areas h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #f0e6ff;
+}
+
+.weak-areas ul {
+  list-style: none;
+  text-align: left;
+}
+
+.weak-areas li {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
 
 .medal {
-  width: 150px;
-  height: 150px;
-  animation: growMedal 0.8s ease-out forwards;
+  width: 180px;
+  height: 180px;
+  margin: 1.5rem auto;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+  animation: pulse 2s infinite alternate;
 }
 
-.gold-medal {
-  animation: spin 2s ease-out infinite, growMedal 0.8s ease-out forwards;
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
 
-.silver-medal {
-  animation: spin 2s ease-out infinite, growMedal 0.8s ease-out forwards;
+.perfect-score-message {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(46, 125, 50, 0.2); /* Green background */
+  border-radius: 12px;
+  color: #a5d6a7;
+  font-size: 1.1rem;
+  animation: pulse 2s infinite;
+}
+.result-button {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #6b5b95, #8367c7);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
-.bronze-medal {
-  animation: spin 2s ease-out infinite, growMedal 0.8s ease-out forwards;
+.result-button:hover {
+  transform: translateY(-3px);
+}
+.start-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top left, #1e1e2f, #0c0c1f);
+  animation: fadeIn 1.2s ease-out forwards;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+.start-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.start-card:hover {
+  transform: translateY(-5px);
+}
+
+.start-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #f0e6ff;
+}
+
+.start-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+.start-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.start-input::placeholder {
+  color: #ddd;
+}
+
+.start-input:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.start-button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6b5b95, #8367c7);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.start-button:hover {
+  background: linear-gradient(135deg, #8367c7, #a58eda);
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
   }
-  100% {
-    transform: rotate(360deg);
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

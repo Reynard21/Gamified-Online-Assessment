@@ -1,46 +1,66 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { questions } from "./Test";
-
-const classifyIQ = (points) => {
-  if (points >= 30) return "You have a High IQ!";
-  if (points >= 20) return "You have an Average IQ!";
-  return "You have a Low IQ!";
-};
 
 const Result = () => {
   const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  const points = parseInt(query.get("points") || "0");
+  const navigate = useNavigate();
 
-  // Use dynamic number of questions
-  const totalQuestions = questions.length;
-  const percentage = (points / totalQuestions) * 100;
+  const {
+    score = 0,
+    medal = "bronze",
+    iqClass = "low",
+    weakAreas = [],
+    name = "Anonymous",
+    age = "N/A",      
+  } = location.state || {};
 
-  const getMedalImage = (percentage) => {
-    if (percentage <= 40) return "/images/bronze-medal.png";
-    if (percentage <= 60) return "/images/silver-medal.png";
-    return "/images/gold-medal.png";
+  const totalQuestions = 50;
+  const isPerfectScore = score === totalQuestions; 
+
+  const getMedalImage = (medalType) => {
+    if (!medalType) return '';
+    return `/images/${medalType.toLowerCase()}-medal.png`;
   };
 
-  const medalImage = getMedalImage(percentage);
-  const iqLevel = classifyIQ(points);
-
-  const navigate = useNavigate();
+  const medalImagePath = getMedalImage(medal);
 
   return (
     <div className="result-container">
-      <h1 className="result-title">Your Result</h1>
-      <p className="result-text">Points: {points}</p>
-      <div className="medal-container">
-        <img src={medalImage} alt="Medal" className="medal" />
+      <h1 className="result-title">
+        {isPerfectScore ? "🎉 Perfect Score!" : "Your Results"}
+      </h1>
+      
+      <div className="result-details">
+        <p className="result-text">🎯 Score: <strong>{score}/{totalQuestions}</strong></p>
+        <p className="result-text">👤 {name}, {age}</p>
+        <p className="result-text">🧠 IQ Classification: <strong>{iqClass}</strong></p>
       </div>
-      <p className="result-text">IQ Level: {iqLevel}</p>
-      <button className="button" onClick={() => navigate("/")}>
-        Back to Home
+
+      {medalImagePath && (
+        <img src={medalImagePath} alt={`${medal} Medal`} className="medal" />
+      )}
+
+      {!isPerfectScore && weakAreas.length > 0 && (
+        <div className="weak-areas">
+          <h3>🚨 Areas Needing Improvement</h3>
+          <ul>
+            {weakAreas.map((area, index) => (
+              <li key={index}>{area}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {isPerfectScore && (
+        <div className="perfect-score-message">
+          <p>You aced every category! 🏆</p>
+        </div>
+      )}
+
+      <button className="result-button" onClick={() => navigate("/")}>
+        🏠 Return Home
       </button>
     </div>
   );
 };
-
 export default Result;
