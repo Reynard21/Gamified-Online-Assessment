@@ -16,8 +16,8 @@ const StartPage = ({ setUserInfo }) => {
   return (
     <div className="start-container">
       <div className="start-card">
-        <h1 className="start-title">🧠 Ready to Test Your IQ?</h1>
-        <p className="start-subtitle">Enter your details to begin your IQ Test!</p>
+        <h1 className="start-title">🧠 Ready for your Test?</h1>
+        <p className="start-subtitle">Enter your details to begin your Test!</p>
         <input
           type="text"
           placeholder="Enter your name"
