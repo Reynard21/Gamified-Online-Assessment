@@ -258,7 +258,7 @@ const Test = () => {
       maxStreak,
     };
 
-    fetch('http://localhost:5000/api/submit', {
+    fetch('https://online-assessment-backend-production.up.railway.app/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(submissionData),
