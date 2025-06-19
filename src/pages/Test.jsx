@@ -161,14 +161,18 @@
 
 // export default Test;
 
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { questions } from "../data/questions";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { questions as allQuestions } from "../data/questions";
 
-const Test = ({ userInfo }) => {
-  const { name, age } = userInfo;
-  const [answers, setAnswers] = useState([]);
+const Test = () => {
+  const { subject } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { name, age } = location.state || { name: "Anonymous", age: "N/A" };
+  const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState([]);
   const [streak, setStreak] = useState(0);
   const [maxStreak, setMaxStreak] = useState(0);
   const [score, setScore] = useState(0);
@@ -176,7 +180,22 @@ const Test = ({ userInfo }) => {
   const [showPointPopup, setShowPointPopup] = useState(false);
   const [hasAnswered, setHasAnswered] = useState(false);
   const [isStreakBroken, setIsStreakBroken] = useState(false);
-  const navigate = useNavigate();
+  const [isAnswerWrong, setIsAnswerWrong] = useState(false);
+
+
+
+  useEffect(() => {
+    const subjectKey = subject?.toLowerCase();
+    if (allQuestions[subjectKey]) {
+      setQuestions(allQuestions[subjectKey]);
+    } else {
+      console.error("Invalid subject:", subjectKey);
+    }
+  }, [subject]);
+
+  if (questions.length === 0) {
+    return <p style={{ color: "white", textAlign: "center" }}>Loading questions...</p>;
+  }
 
   const q = questions[currentQuestionIndex];
 
@@ -203,40 +222,68 @@ const Test = ({ userInfo }) => {
         goToNext();
       }, newStreak >= 2 ? 2000 : 1000);
     } else {
+  setIsAnswerWrong(true); // trigger animation
+
   if (streak >= 2) {
     setIsStreakBroken(true);
     setTimeout(() => {
       setIsStreakBroken(false);
-      setStreak(0); // reset if broken
+      setStreak(0);
+      setIsAnswerWrong(false); // reset animation
       goToNext();
     }, 2000);
   } else {
-    setStreak(0); // ✅ tambahkan ini untuk reset saat streak belum aktif
+    setStreak(0);
     setTimeout(() => {
+      setIsAnswerWrong(false); // reset animation
       goToNext();
     }, 1000);
   }
 }
 
+
   };
 
-  const goToNext = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setHasAnswered(false);
-    } else {
-      navigate("/result", {
-        state: {
-          name,
-          age,
-          score,
-          maxStreak,
-          points,
-          totalQuestions: questions.length,
-        },
+ const goToNext = () => {
+  if (currentQuestionIndex < questions.length - 1) {
+    setCurrentQuestionIndex(currentQuestionIndex + 1);
+    setHasAnswered(false);
+  } else {
+    // Hanya kirim data yang diperlukan
+    const submissionData = {
+      name,
+      age,
+      score,
+      points,
+      maxStreak,
+    };
+
+    fetch('http://localhost:5000/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(submissionData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Failed to submit');
+        }
+        return res.json();
+      })
+      .then(() => {
+        // Setelah sukses kirim, arahkan ke halaman hasil
+        navigate("/result", {
+          state: submissionData,
+        });
+      })
+      .catch((err) => {
+        console.error('Error submitting:', err);
+        // Tetap arahkan meskipun gagal submit
+        navigate("/result", {
+          state: submissionData,
+        });
       });
-    }
-  };
+  }
+};
 
   const progressPercentage =
     ((currentQuestionIndex + 1) / questions.length) * 100;
@@ -272,10 +319,10 @@ const Test = ({ userInfo }) => {
             />
           </div>
         </div>
-
+<div className={`question-box ${isAnswerWrong ? "wrong-effect" : ""}`}>
         <h2 className="question-type">{q.type} Question</h2>
         <p className="question-text">{q.question}</p>
-
+</div>
         <div className="options-container">
           {q.options.map((opt) => (
             <button
@@ -304,7 +351,7 @@ const Test = ({ userInfo }) => {
           >
             {isStreakBroken
               ? "💥 Streak Broken!"
-              : `🔥 You're on a ${streak}-answer streak!`}
+              : `🔥 You're on a ${streak}-answer streak! 🔥`}
           </div>
         )}
       </div>
@@ -313,11 +360,3 @@ const Test = ({ userInfo }) => {
 };
 
 export default Test;
-
-
-
-
-
-
-
-

@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-const StartPage = ({ setUserInfo }) => {
+const StartPage = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const navigate = useNavigate();
 
   const handleStart = () => {
   if (!name || !age) return alert('Please enter name and age');
-  setUserInfo({ name, age });
-  navigate('/home'); 
-};
+navigate('/subjects', { state: { name, age } });};
 
   return (
     <div className="start-container">

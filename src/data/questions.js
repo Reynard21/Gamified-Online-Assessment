@@ -1,379 +1,135 @@
-export const questions = [
-  {
-    id: 1,
-    question: "What is the next number in the sequence: 2, 6, 12, 20, ___?",
-    options: ["24", "28", "30", "32"],
-    correctAnswer: "32",
-    type: "Mathematics",
-  },
-  {
-    id: 2,
-    question: "What is 15% of 120?",
-    options: ["12", "15", "18", "20"],
-    correctAnswer: "18",
-    type: "Mathematics",
-  },
-  {
-    id: 3,
-    question: "If $4x = 3x + 7$, what is $x$?",
-    options: ["3", "5", "7", "9"],
-    correctAnswer: "7",
-    type: "Mathematics",
-  },
-  {
-    id: 4,
-    question:
-      "A train travels 60 km in 1.5 hours. What is its average speed in km/h?",
-    options: ["30", "40", "45", "90"],
-    correctAnswer: "40",
-    type: "Mathematics",
-  },
-  {
-    id: 5,
-    question: "What is the square root of 144?",
-    options: ["10", "12", "14", "16"],
-    correctAnswer: "12",
-    type: "Mathematics",
-  },
-  {
-    id: 6,
-    question: "What is the next prime number after 29?",
-    options: ["30", "31", "33", "37"],
-    correctAnswer: "31",
-    type: "Mathematics",
-  },
-  {
-    id: 7,
-    question:
-      "If a shirt costs $40 after a 20% discount, what was the original price?",
-    options: ["$48", "$50", "$52", "$55"],
-    correctAnswer: "$50",
-    type: "Mathematics",
-  },
-  {
-    id: 8,
-    question: "Which number is different from the group: 24, 36, 48, 60, 62?",
-    options: ["24", "36", "48", "60", "62"],
-    correctAnswer: "62",
-    type: "Mathematics",
-  },
-  {
-    id: 9,
-    question: "Solve: $(5 \times 4) + (3^2) - 1 = ?$ ",
-    options: ["28", "29", "30", "31"],
-    correctAnswer: "28",
-    type: "Mathematics",
-  },
-  {
-    id: 10,
-    question: "How many sides does a dodecagon have?",
-    options: ["10", "11", "12", "15"],
-    correctAnswer: "12",
-    type: "Mathematics",
-  },
-  {
-    id: 11,
-    question:
-      "A pizza is divided into 8 equal slices. If you eat 3, what fraction is left?",
-    options: ["1/8", "3/8", "5/8", "7/8"],
-    correctAnswer: "5/8",
-    type: "Mathematics",
-  },
-  {
-    id: 12,
-    question: "4, 9, 16, 25, ___ – what comes next?",
-    options: ["30", "36", "49", "64"],
-    correctAnswer: "36",
-    type: "Mathematics",
-  },
-  {
-    id: 13,
-    question: "What's (9 x 8 x 2) / 12",
-    options: ["14", "12", "13", "12.5"],
-    correctAnswer: "12",
-    type: "Mathematics",
-  },
+export const questions = {
+  math: [
+   { id: 1, question: "What is 5 + 3?", options: ["6", "7", "8", "9"], correctAnswer: "8", type: "Mathematics" },
+  { id: 2, question: "What is 12 - 4?", options: ["6", "7", "8", "9"], correctAnswer: "8", type: "Mathematics" },
+  { id: 3, question: "What is 6 × 3?", options: ["18", "16", "20", "12"], correctAnswer: "18", type: "Mathematics" },
+  { id: 4, question: "What is 16 ÷ 4?", options: ["2", "3", "4", "5"], correctAnswer: "4", type: "Mathematics" },
+  { id: 5, question: "What is the square root of 49?", options: ["6", "7", "8", "9"], correctAnswer: "7", type: "Mathematics" },
+  { id: 6, question: "What is 9 × 9?", options: ["81", "72", "90", "99"], correctAnswer: "81", type: "Mathematics" },
+  { id: 7, question: "What is 100 ÷ 10?", options: ["10", "20", "5", "15"], correctAnswer: "10", type: "Mathematics" },
+  { id: 8, question: "What is 15 + 6?", options: ["20", "21", "22", "23"], correctAnswer: "21", type: "Mathematics" },
+  { id: 9, question: "What is 13 - 7?", options: ["6", "7", "8", "5"], correctAnswer: "6", type: "Mathematics" },
+  { id: 10, question: "What is 7²?", options: ["49", "56", "42", "63"], correctAnswer: "49", type: "Mathematics" },
+  { id: 11, question: "What is 25 ÷ 5?", options: ["4", "5", "6", "7"], correctAnswer: "5", type: "Mathematics" },
+  { id: 12, question: "What is 3 × 8?", options: ["24", "21", "18", "26"], correctAnswer: "24", type: "Mathematics" },
+  { id: 13, question: "What is 10 + 9?", options: ["18", "19", "20", "21"], correctAnswer: "19", type: "Mathematics" },
+  { id: 14, question: "What is 18 - 11?", options: ["6", "7", "8", "9"], correctAnswer: "7", type: "Mathematics" },
+  { id: 15, question: "What is 2³?", options: ["6", "8", "4", "10"], correctAnswer: "8", type: "Mathematics" },
+  { id: 16, question: "What is 14 ÷ 2?", options: ["6", "7", "8", "9"], correctAnswer: "7", type: "Mathematics" },
+  { id: 17, question: "What is 6 + 13?", options: ["18", "19", "20", "21"], correctAnswer: "19", type: "Mathematics" },
+  { id: 18, question: "What is 11 - 3?", options: ["7", "8", "9", "10"], correctAnswer: "8", type: "Mathematics" },
+  { id: 19, question: "What is 4 × 4?", options: ["16", "14", "12", "18"], correctAnswer: "16", type: "Mathematics" },
+  { id: 20, question: "What is 81 ÷ 9?", options: ["9", "8", "7", "6"], correctAnswer: "9", type: "Mathematics" },
+  { id: 21, question: "What is 5 × 5?", options: ["25", "30", "20", "15"], correctAnswer: "25", type: "Mathematics" },
+  { id: 22, question: "What is 40 ÷ 5?", options: ["8", "6", "7", "9"], correctAnswer: "8", type: "Mathematics" },
+  { id: 23, question: "What is 2 + 2 × 3?", options: ["6", "8", "10", "12"], correctAnswer: "8", type: "Mathematics" },
+  { id: 24, question: "What is 3²?", options: ["9", "6", "12", "8"], correctAnswer: "9", type: "Mathematics" },
+  { id: 25, question: "What is 30 ÷ 6?", options: ["5", "4", "6", "3"], correctAnswer: "5", type: "Mathematics" },
+  { id: 26, question: "What is 2 + 10?", options: ["10", "11", "12", "13"], correctAnswer: "12", type: "Mathematics" },
+  { id: 27, question: "What is 8 × 2?", options: ["14", "15", "16", "17"], correctAnswer: "16", type: "Mathematics" },
+  { id: 28, question: "What is 100 - 45?", options: ["55", "65", "45", "75"], correctAnswer: "55", type: "Mathematics" },
+  { id: 29, question: "What is 6 ÷ 2?", options: ["2", "3", "4", "5"], correctAnswer: "3", type: "Mathematics" },
+  { id: 30, question: "What is 9 + 6?", options: ["14", "15", "16", "13"], correctAnswer: "15", type: "Mathematics" }
+],
 
+english: [
   // 13 English - Synonyms, Antonyms, Analogies
-  {
-    id: 14,
-    question: "What is the synonym of fragile?",
-    options: ["strong", "delicate", "heavy", "loud"],
-    correctAnswer: "delicate",
-    type: "English",
-  },
-  {
-    id: 15,
-    question: "Which word is the opposite of scarce?",
-    options: ["abundant", "rare", "empty", "dull"],
-    correctAnswer: "abundant",
-    type: "English",
-  },
-  {
-    id: 16,
-    question: "Choose the analogy: Eye is to See as Ear is to ___",
-    options: ["Listen", "Hear", "Touch", "Smell"],
-    correctAnswer: "Hear",
-    type: "English",
-  },
-  {
-    id: 17,
-    question: "Which word doesn’t belong: happy, joyful, sad, cheerful",
-    options: ["happy", "joyful", "sad", "cheerful"],
-    correctAnswer: "sad",
-    type: "English",
-  },
-  {
-    id: 18,
-    question: "What does inevitable most nearly mean?",
-    options: ["optional", "avoidable", "certain", "sudden"],
-    correctAnswer: "certain",
-    type: "English",
-  },
-  {
-    id: 19,
-    question: "Which word is most similar to elaborate?",
-    options: ["simple", "detailed", "easy", "plain"],
-    correctAnswer: "detailed",
-    type: "English",
-  },
-  {
-    id: 20,
-    question: "Choose the analogy: Book is to Reading as Fork is to ___",
-    options: ["Writing", "Drawing", "Stirring", "Eating"],
-    correctAnswer: "Eating",
-    type: "English",
-  },
-  {
-    id: 21,
-    question:
-      "Complete the sentence: She was so tired that she could ___ stand.",
-    options: ["easily", "hardly", "quickly", "always"],
-    correctAnswer: "hardly",
-    type: "English",
-  },
-  {
-    id: 22,
-    question: "What is the past tense of “arise”?",
-    options: ["arose", "arisen", "arising", "arises"],
-    correctAnswer: "arose",
-    type: "English",
-  },
-  {
-    id: 23,
-    question: "Which word is the odd one out: lion, tiger, bear, carrot",
-    options: ["lion", "tiger", "bear", "carrot"],
-    correctAnswer: "carrot",
-    type: "English",
-  },
-  {
-    id: 24,
-    question: "Choose the word closest in meaning to brief.",
-    options: ["short", "clear", "boring", "slow"],
-    correctAnswer: "short",
-    type: "English",
-  },
-  {
-    id: 25,
-    question: "What does generous mean?",
-    options: ["stingy", "selfish", "willing to give", "careful with money"],
-    correctAnswer: "willing to give",
-    type: "English",
-  },
-  {
-    id: 26,
-    question: "Which is a proper noun: city, book, Jakarta, river",
-    options: ["city", "book", "Jakarta", "river"],
-    correctAnswer: "Jakarta",
-    type: "English",
-  },
+   { id: 1, question: "Which word is a noun?", options: ["Run", "Blue", "Apple", "Quick"], correctAnswer: "Apple", type: "English" },
+  { id: 2, question: "Which of these is a verb?", options: ["Jump", "Beautiful", "Apple", "Red"], correctAnswer: "Jump", type: "English" },
+  { id: 3, question: "What is the opposite of 'hot'?", options: ["Warm", "Cold", "Cool", "Burning"], correctAnswer: "Cold", type: "English" },
+  { id: 4, question: "Which sentence is correct?", options: ["She go to school.", "She goes to school.", "She going to school.", "She gone to school."], correctAnswer: "She goes to school.", type: "English" },
+  { id: 5, question: "Which word is an adjective?", options: ["Quick", "Run", "Jump", "Eat"], correctAnswer: "Quick", type: "English" },
+  { id: 6, question: "Choose the correct article: ___ apple.", options: ["A", "An", "The", "Some"], correctAnswer: "An", type: "English" },
+  { id: 7, question: "Find the synonym of 'happy'", options: ["Sad", "Joyful", "Angry", "Lonely"], correctAnswer: "Joyful", type: "English" },
+  { id: 8, question: "What is the plural of 'mouse'?", options: ["Mouses", "Mouse", "Mices", "Mice"], correctAnswer: "Mice", type: "English" },
+  { id: 9, question: "Complete: She is ___ teacher.", options: ["a", "an", "the", "of"], correctAnswer: "a", type: "English" },
+  { id: 10, question: "Which is a proper noun?", options: ["dog", "city", "John", "table"], correctAnswer: "John", type: "English" },
+  { id: 11, question: "Which word is an adverb?", options: ["Quickly", "Run", "Dog", "Happy"], correctAnswer: "Quickly", type: "English" },
+  { id: 12, question: "What is the past tense of 'go'?", options: ["Go", "Goes", "Went", "Gone"], correctAnswer: "Went", type: "English" },
+  { id: 13, question: "What is the plural of 'child'?", options: ["Childs", "Childes", "Children", "Childeren"], correctAnswer: "Children", type: "English" },
+  { id: 14, question: "What is the opposite of 'up'?", options: ["Down", "High", "Above", "On"], correctAnswer: "Down", type: "English" },
+  { id: 15, question: "Which one is a question word?", options: ["Which", "It", "Have", "The"], correctAnswer: "Which", type: "English" },
+  { id: 16, question: "Find the correct form: 'He ___ TV now.'", options: ["watch", "watches", "is watching", "watching"], correctAnswer: "is watching", type: "English" },
+  { id: 17, question: "What does a period (.) mean in a sentence?", options: ["Pause", "Question", "End", "Excitement"], correctAnswer: "End", type: "English" },
+  { id: 18, question: "Choose a synonym for 'smart'", options: ["Dull", "Clever", "Slow", "Hard"], correctAnswer: "Clever", type: "English" },
+  { id: 19, question: "Which one is a preposition?", options: ["Under", "Cat", "Jump", "Nice"], correctAnswer: "Under", type: "English" },
+  { id: 20, question: "Which sentence is in past tense?", options: ["He eats.", "He is eating.", "He ate.", "He will eat."], correctAnswer: "He ate.", type: "English" },
+  { id: 21, question: "What is the base form of 'ran'?", options: ["Run", "Runs", "Running", "Runned"], correctAnswer: "Run", type: "English" },
+  { id: 22, question: "Choose the correct spelling:", options: ["Definately", "Definitely", "Defanitely", "Definetly"], correctAnswer: "Definitely", type: "English" },
+  { id: 23, question: "What is the past tense of 'eat'?", options: ["Eats", "Eated", "Ate", "Eating"], correctAnswer: "Ate", type: "English" },
+  { id: 24, question: "Which is a compound word?", options: ["Sunshine", "Sun", "Shine", "Shiny"], correctAnswer: "Sunshine", type: "English" },
+  { id: 25, question: "Which one is a conjunction?", options: ["And", "Fast", "Blue", "Car"], correctAnswer: "And", type: "English" },
+  { id: 26, question: "Choose a homophone for 'pair'", options: ["Pear", "Pare", "Bear", "Peel"], correctAnswer: "Pear", type: "English" },
+  { id: 27, question: "Which sentence uses a simile?", options: ["He is brave.", "She sings beautifully.", "He runs like the wind.", "She runs fast."], correctAnswer: "He runs like the wind.", type: "English" },
+  { id: 28, question: "Find the correct word: 'I have ___ book.'", options: ["a", "an", "the", "this"], correctAnswer: "a", type: "English" },
+  { id: 29, question: "Which one is an interjection?", options: ["Wow!", "Fast", "Book", "Yes"], correctAnswer: "Wow!", type: "English" },
+  { id: 30, question: "Find the verb: 'The cat sleeps on the mat.'", options: ["Cat", "Sleeps", "On", "Mat"], correctAnswer: "Sleeps", type: "English" }
+],
 
-  // 12 Logical - Patterns, Reasoning
-  {
-    id: 27,
-    question:
-      "If all roses are flowers, and some flowers fade quickly, can some roses fade quickly?",
-    options: ["Yes", "No", "Maybe", "Cannot be determined"],
-    correctAnswer: "Yes",
-    type: "Logic",
-  },
-  {
-    id: 28,
-    question:
-      "All squares are rectangles. All rectangles have 4 sides. Therefore, all squares have ___?",
-    options: ["3 sides", "4 sides", "round corners", "equal angles"],
-    correctAnswer: "4 sides",
-    type: "Logic",
-  },
-  {
-    id: 29,
-    question: "Which number comes next: 1, 3, 6, 10, 15, ___",
-    options: ["18", "20", "21", "24"],
-    correctAnswer: "21",
-    type: "Logic",
-  },
-  {
-    id: 30,
-    question:
-      "If today is Monday and it rained yesterday, what day did it rain?",
-    options: ["Saturday", "Sunday", "Monday", "Tuesday"],
-    correctAnswer: "Sunday",
-    type: "Logic",
-  },
-  {
-    id: 31,
-    question:
-      "Which figure completes the pattern? (Imagine an abstract shape pattern here for a web implementation)",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    correctAnswer: "Option C", // Replace with the correct option based on the pattern
-    type: "Logic",
-  },
-  {
-    id: 32,
-    question:
-      "If “Some cats are black” and “All black animals are fast”, is the conclusion “Some cats are fast” true or false?",
-    options: ["True", "False", "Cannot be determined"],
-    correctAnswer: "True",
-    type: "Logic",
-  },
-  {
-    id: 33,
-    question: "A is taller than B. C is shorter than B. Who is tallest?",
-    options: ["A", "B", "C", "Cannot be determined"],
-    correctAnswer: "A",
-    type: "Logic",
-  },
-  {
-    id: 34,
-    question: "Which one is the odd one out: 8, 16, 24, 32, 34",
-    options: ["8", "16", "24", "32", "34"],
-    correctAnswer: "34",
-    type: "Logic",
-  },
-  {
-    id: 35,
-    question: "What comes next: AB, CD, EF, GH, ___",
-    options: ["IJ", "IK", "JI", "KI"],
-    correctAnswer: "IJ",
-    type: "Logic",
-  },
-  {
-    id: 36,
-    question:
-      "If John is 5 years older than Maria, and Maria is 2 years older than Sam, who is the youngest?",
-    options: ["John", "Maria", "Sam", "Cannot be determined"],
-    correctAnswer: "Sam",
-    type: "Logic",
-  },
-  {
-    id: 37,
-    question: "There are 5 apples and you take away 2. How many do you have?",
-    options: ["2", "3", "5", "7"],
-    correctAnswer: "2",
-    type: "Logic",
-  },
-  {
-    id: 38,
-    question: "Which weighs more: a pound of feathers or a pound of bricks?",
-    options: ["Feathers", "Bricks", "They weigh the same"],
-    correctAnswer: "They weigh the same",
-    type: "Logic",
-  },
+biology: [
+   { id: 1, question: "What do humans breathe in to stay alive?", options: ["Oxygen", "Carbon", "Nitrogen", "Helium"], correctAnswer: "Oxygen", type: "Biology" },
+  { id: 2, question: "What is the main job of the heart?", options: ["Pump blood", "Make food", "Control thoughts", "Breathe"], correctAnswer: "Pump blood", type: "Biology" },
+  { id: 3, question: "Which organ helps us breathe?", options: ["Liver", "Heart", "Lungs", "Stomach"], correctAnswer: "Lungs", type: "Biology" },
+  { id: 4, question: "What covers our body and protects it?", options: ["Skin", "Bone", "Muscle", "Hair"], correctAnswer: "Skin", type: "Biology" },
+  { id: 5, question: "Which organ do we use to think?", options: ["Lung", "Brain", "Heart", "Kidney"], correctAnswer: "Brain", type: "Biology" },
+  { id: 6, question: "Which part of a plant makes food?", options: ["Root", "Stem", "Leaf", "Flower"], correctAnswer: "Leaf", type: "Biology" },
+  { id: 7, question: "Which organ helps to digest food?", options: ["Lungs", "Heart", "Stomach", "Brain"], correctAnswer: "Stomach", type: "Biology" },
+  { id: 8, question: "What do we use to see?", options: ["Hands", "Eyes", "Feet", "Nose"], correctAnswer: "Eyes", type: "Biology" },
+  { id: 9, question: "Where is food absorbed in the body?", options: ["Liver", "Stomach", "Small intestine", "Lungs"], correctAnswer: "Small intestine", type: "Biology" },
+  { id: 10, question: "What is the basic unit of life?", options: ["Atom", "Organ", "Cell", "Tissue"], correctAnswer: "Cell", type: "Biology" },
+  { id: 11, question: "Which sense helps you smell?", options: ["Eyes", "Nose", "Ears", "Skin"], correctAnswer: "Nose", type: "Biology" },
+  { id: 12, question: "What do red blood cells carry?", options: ["Water", "Oxygen", "Sugar", "Waste"], correctAnswer: "Oxygen", type: "Biology" },
+  { id: 13, question: "Which system helps us move?", options: ["Nervous", "Digestive", "Muscular", "Circulatory"], correctAnswer: "Muscular", type: "Biology" },
+  { id: 14, question: "Which part of the body contains bones?", options: ["Skin", "Hair", "Skeleton", "Veins"], correctAnswer: "Skeleton", type: "Biology" },
+  { id: 15, question: "Which body part helps us hear?", options: ["Eyes", "Nose", "Ears", "Tongue"], correctAnswer: "Ears", type: "Biology" },
+  { id: 16, question: "Which part of a plant absorbs water?", options: ["Stem", "Leaf", "Flower", "Root"], correctAnswer: "Root", type: "Biology" },
+  { id: 17, question: "What are animals that eat plants called?", options: ["Carnivores", "Herbivores", "Omnivores", "Insectivores"], correctAnswer: "Herbivores", type: "Biology" },
+  { id: 18, question: "What gives plants their green color?", options: ["Water", "Oxygen", "Chlorophyll", "Sunlight"], correctAnswer: "Chlorophyll", type: "Biology" },
+  { id: 19, question: "Which body part helps us taste?", options: ["Teeth", "Tongue", "Nose", "Eyes"], correctAnswer: "Tongue", type: "Biology" },
+  { id: 20, question: "How many kidneys does a human have?", options: ["1", "2", "3", "4"], correctAnswer: "2", type: "Biology" },
+  { id: 21, question: "Which part helps plants take in sunlight?", options: ["Roots", "Stem", "Leaves", "Seeds"], correctAnswer: "Leaves", type: "Biology" },
+  { id: 22, question: "Which part of the body removes waste from blood?", options: ["Heart", "Lungs", "Kidneys", "Stomach"], correctAnswer: "Kidneys", type: "Biology" },
+  { id: 23, question: "Which part of the body helps fight illness?", options: ["Bones", "Muscles", "White blood cells", "Skin"], correctAnswer: "White blood cells", type: "Biology" },
+  { id: 24, question: "What do bones and muscles work together to help us do?", options: ["Breathe", "Digest", "Move", "Think"], correctAnswer: "Move", type: "Biology" },
+  { id: 25, question: "What part of the eye helps us see colors?", options: ["Cornea", "Iris", "Retina", "Pupil"], correctAnswer: "Retina", type: "Biology" },
+  { id: 26, question: "What are the five senses?", options: ["See, hear, move, eat, sleep", "Run, jump, smell, see, swim", "Smell, taste, touch, see, hear", "Walk, talk, think, eat, breathe"], correctAnswer: "Smell, taste, touch, see, hear", type: "Biology" },
+  { id: 27, question: "What does the brain control?", options: ["Only muscles", "Only breathing", "Everything in the body", "Only bones"], correctAnswer: "Everything in the body", type: "Biology" },
+  { id: 28, question: "What are living things made of?", options: ["Air", "Cells", "Water", "Sunlight"], correctAnswer: "Cells", type: "Biology" },
+  { id: 29, question: "What do we call baby plants?", options: ["Leaves", "Flowers", "Roots", "Seeds"], correctAnswer: "Seeds", type: "Biology" },
+  { id: 30, question: "Which part of the plant holds it in the ground?", options: ["Stem", "Leaves", "Roots", "Fruit"], correctAnswer: "Roots", type: "Biology" }
+],
 
-  // 12 Spatial - Visual, Rotation, Shapes
-  {
-    id: 39,
-    question:
-      "Which shape is a mirror image of this one? (Imagine shape options for a web implementation)",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    correctAnswer: "Option B", // Replace with the correct option based on the visual
-    type: "Spatial",
-  },
-  {
-    id: 40,
-    question:
-      "Rotate a triangle 90° clockwise. What does it look like? (Imagine visual options)",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    correctAnswer: "Option A", // Replace with the correct rotated triangle visual
-    type: "Spatial",
-  },
-  {
-    id: 41,
-    question:
-      "Identify the shape that completes the sequence of rotating arrows. (Imagine visual sequence)",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    correctAnswer: "Option D", // Replace with the correct arrow direction
-    type: "Spatial",
-  },
-  {
-    id: 42,
-    question:
-      "Which unfolded cube matches the 3D cube shown? (Imagine cube and unfolded net visuals)",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    correctAnswer: "Option C", // Replace with the correct net
-    type: "Spatial",
-  },
-  {
-    id: 43,
-    question:
-      "Which figure is different from the others based on symmetry? (Imagine symmetrical/asymmetrical shapes)",
-    options: ["Shape A", "Shape B", "Shape C", "Shape D"],
-    correctAnswer: "Shape B", // Replace with the asymmetrical shape
-    type: "Spatial",
-  },
-  {
-    id: 44,
-    question:
-      "Identify the object that would look the same if flipped horizontally. (Imagine objects)",
-    options: ["Object A", "Object B", "Object C", "Object D"],
-    correctAnswer: "Object A", // Replace with the horizontally symmetrical object
-    type: "Spatial",
-  },
-  {
-    id: 45,
-    question:
-      "Find the missing piece in a jigsaw pattern (grid-based logic). (Imagine jigsaw pattern)",
-    options: ["Piece 1", "Piece 2", "Piece 3", "Piece 4"],
-    correctAnswer: "Piece 3", // Replace with the correct jigsaw piece
-    type: "Spatial",
-  },
-  {
-    id: 46,
-    question:
-      "If a square is divided into 4 equal parts, how many rectangles are formed?",
-    options: ["1", "4", "5", "9"],
-    correctAnswer: "5",
-    type: "Spatial",
-  },
-  {
-    id: 47,
-    question:
-      "Which 3D object is formed from this net? (cube, pyramid, etc.) (Imagine a net)",
-    options: ["Cube", "Pyramid", "Sphere", "Cylinder"],
-    correctAnswer: "Cube", // Replace with the correct 3D object
-    type: "Spatial",
-  },
-  {
-    id: 48,
-    question:
-      "Count the number of triangles in this complex shape. (Imagine a shape with multiple triangles)",
-    options: ["4", "6", "8", "10"],
-    correctAnswer: "8", // Replace with the correct count
-    type: "Spatial",
-  },
-  {
-    id: 49,
-    question: "Which figure has the most sides? (Imagine different polygons)",
-    options: ["Triangle", "Square", "Pentagon", "Octagon"],
-    correctAnswer: "Octagon",
-    type: "Spatial",
-  },
-  {
-    id: 50,
-    question:
-      "Identify the rotated version of the original shape. (Imagine a shape and its rotations)",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    correctAnswer: "Option C", // Replace with the correct rotated shape
-    type: "Spatial",
-  },
-];
+
+  physics: [
+  { id: 1, question: "What falls faster: heavy or light object (in vacuum)?", options: ["Heavy", "Light", "Same", "None"], correctAnswer: "Same", type: "Physics" },
+  { id: 2, question: "What do we measure with a thermometer?", options: ["Speed", "Weight", "Temperature", "Time"], correctAnswer: "Temperature", type: "Physics" },
+  { id: 3, question: "What force pulls things to the ground?", options: ["Magnetism", "Friction", "Gravity", "Electricity"], correctAnswer: "Gravity", type: "Physics" },
+  { id: 4, question: "What tool do we use to measure weight?", options: ["Ruler", "Scale", "Clock", "Thermometer"], correctAnswer: "Scale", type: "Physics" },
+  { id: 5, question: "What is the unit of time?", options: ["Meter", "Second", "Gram", "Volt"], correctAnswer: "Second", type: "Physics" },
+  { id: 6, question: "What happens when you rub your hands?", options: ["They fly", "They melt", "They heat up", "They cool"], correctAnswer: "They heat up", type: "Physics" },
+  { id: 7, question: "What does a magnet attract?", options: ["Plastic", "Wood", "Iron", "Water"], correctAnswer: "Iron", type: "Physics" },
+  { id: 8, question: "What is needed to see a shadow?", options: ["Darkness", "Mirror", "Light", "Glass"], correctAnswer: "Light", type: "Physics" },
+  { id: 9, question: "What is the unit of distance?", options: ["Second", "Meter", "Watt", "Ampere"], correctAnswer: "Meter", type: "Physics" },
+  { id: 10, question: "What makes things move?", options: ["Sound", "Force", "Color", "Mass"], correctAnswer: "Force", type: "Physics" },
+  { id: 11, question: "Which of these is a simple machine?", options: ["Hammer", "Spoon", "Wheel", "Microscope"], correctAnswer: "Wheel", type: "Physics" },
+  { id: 12, question: "What makes a rainbow?", options: ["Sound", "Wind", "Light", "Cloud"], correctAnswer: "Light", type: "Physics" },
+  { id: 13, question: "What tool is used to see very far things?", options: ["Microscope", "Telescope", "Binoculars", "Ruler"], correctAnswer: "Telescope", type: "Physics" },
+  { id: 14, question: "What kind of energy is in moving things?", options: ["Thermal", "Potential", "Kinetic", "Chemical"], correctAnswer: "Kinetic", type: "Physics" },
+  { id: 15, question: "What makes a bulb light up?", options: ["Heat", "Electricity", "Water", "Gas"], correctAnswer: "Electricity", type: "Physics" },
+  { id: 16, question: "What causes sound?", options: ["Heat", "Vibrations", "Gravity", "Light"], correctAnswer: "Vibrations", type: "Physics" },
+  { id: 17, question: "What is the source of solar energy?", options: ["Wind", "Moon", "Sun", "Water"], correctAnswer: "Sun", type: "Physics" },
+  { id: 18, question: "What makes cars go faster?", options: ["Brakes", "Wheels", "Engine", "Fuel"], correctAnswer: "Engine", type: "Physics" },
+  { id: 19, question: "What is faster: sound or light?", options: ["Sound", "Light", "Same", "Depends"], correctAnswer: "Light", type: "Physics" },
+  { id: 20, question: "What causes objects to float?", options: ["Pressure", "Air", "Buoyancy", "Heat"], correctAnswer: "Buoyancy", type: "Physics" },
+  { id: 21, question: "What is friction?", options: ["Pushing", "Sliding resistance", "Gravity", "Electricity"], correctAnswer: "Sliding resistance", type: "Physics" },
+  { id: 22, question: "What do we use to measure length?", options: ["Thermometer", "Meter stick", "Scale", "Watch"], correctAnswer: "Meter stick", type: "Physics" },
+  { id: 23, question: "What do we call stored energy?", options: ["Kinetic", "Static", "Potential", "Heat"], correctAnswer: "Potential", type: "Physics" },
+  { id: 24, question: "Which form of energy helps us cook food?", options: ["Wind", "Solar", "Sound", "Heat"], correctAnswer: "Heat", type: "Physics" },
+  { id: 25, question: "What kind of waves are light waves?", options: ["Mechanical", "Sound", "Electromagnetic", "Water"], correctAnswer: "Electromagnetic", type: "Physics" },
+  { id: 26, question: "What kind of energy is used by a fan?", options: ["Light", "Sound", "Heat", "Electric"], correctAnswer: "Electric", type: "Physics" },
+  { id: 27, question: "What is the main source of wind energy?", options: ["Moon", "Sun", "Stars", "Rain"], correctAnswer: "Sun", type: "Physics" },
+  { id: 28, question: "What is the opposite of hot?", options: ["Warm", "Heat", "Cold", "Fire"], correctAnswer: "Cold", type: "Physics" },
+  { id: 29, question: "Which tool tells direction?", options: ["Clock", "Compass", "Scale", "Thermometer"], correctAnswer: "Compass", type: "Physics" },
+  { id: 30, question: "Which simple machine is used to lift heavy objects?", options: ["Pulley", "Wheel", "Plane", "Screw"], correctAnswer: "Pulley", type: "Physics" }
+]
+};
